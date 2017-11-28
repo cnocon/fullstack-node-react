@@ -11,8 +11,22 @@ The overall project built in this course is a mass email sender, then collection
 
 ---
 
-# Deployment
+# Deployment/How to deploy our application
 A lot of services, not just Heroku, use this same process for deployment, so it's nifty to know.
+
+you do a git init in the server directory
+then you set the upstream to git repo given after you run 
+
+```bash
+➜  server git:(master) heroku create
+Creating app... done, ⬢ fathomless-river-47538
+https://fathomless-river-47538.herokuapp.com/ | https://git.heroku.com/fathomless-river-47538.git
+```
+
+`git remote add heroku https://git.heroku.com/fathomless-river-47538.git`
+`git push heroku master`
+
+If you run to issues, run `heroku logs` to get some error info for what went wrong during the deployment.
 
 ## Deployment Checklist
 
@@ -29,8 +43,6 @@ A lot of services, not just Heroku, use this same process for deployment, so it'
 
 *4. Create .gitignore file*
 * We don't want to include dependencies since Heroku will do that for us.
-
-## How to deploy our application
 
 
 ## How to redeploy our application
