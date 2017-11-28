@@ -1,24 +1,33 @@
 const express = require('express');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+// you don't have to add .js extension if it's a js file
+const keys = require('./config/keys');
 
 const app = express();
 
-// CREATES A NEW INSTANCE OF GOOGLE PASSPORT STRATEGY
-/*passport.use is saying "passport, I want you to be aware there is a new strategy available; please make use of it so users can use strategy to authenticate in our application"
-// we'll pass in config for how to authenticate users in our application: info for Google to identify where the user is coming from using a ClientID and ClientSecret*/
-/* clientID: a public token (anybody can have this, it's ok)
-  clientSecret: a private token; it needs to be secure. DO NOT SHARE. */
+passport.use(
+  new GoogleStrategy(
+  {
+    clientID: keys.googleClientID,
+    clientSecret: keys.googleClientSecret,
+    callbackURL: '/auth/google/callback',
+  },
+  accessToken => {
+    console.log(accessToken);
+  }
+));
 
-/**
-  * CREATE OAUTH PROJECT IN GOOGLE DEVELOPER CONSOLE:
-  * https://console.developers.google.com/ (must use cristinjaneo@gmail.com account,
-    not cristin.io)
- */
-
-passport.use(new GoogleStrategy());
-
-
+// route to initialize oauth process
+// as second arg, tell flow to use passport to kick of authentication flow
+// the 'google' string is something built in to passport strategy, which is a little confusing bc it isn't intuitive where it came from
+// scope is what info/access we want for that user's profile
+app.get(
+  '/auth/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email']
+  })
+);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
