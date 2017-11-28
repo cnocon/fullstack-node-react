@@ -10,6 +10,9 @@ The overall project built in this course is a mass email sender, then collection
 2. Load `localhost:5000` in your browser.
 
 ---
+*To start auto-reload server on changes while you're developing, you can use:*
+`npm run dev`
+---
 
 # DEPLOYMENT
 
@@ -134,4 +137,5 @@ Instructor's [companion repo for the course](https://github.com/StephenGrider/Fu
 
 ### Course Resources: FullStackReact
 <sup>(from [Google Doc by Instructor](https://docs.google.com/document/d/1yZ5sM5xTIxcv0LqMyj__vOWIXRri4TH_3lMu1qPBQjA/edit?ts=5a1cf79e#heading=h.kk1966kbedef))</sup>
+
 
