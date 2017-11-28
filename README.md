@@ -1,6 +1,7 @@
 # Feedback Email Campaign and Report Application
 
 The overall project built in this course is a mass email sender, then collection of feedback from email and tabulating that data. 
+
 ---
 
 ## Flow of Application
@@ -40,7 +41,12 @@ The overall project built in this course is a mass email sender, then collection
 
 ---
 
-## fullstack-node-react
+*STACK*
+MongoDB -> Express/Node API <--[HTTP Request (JSON)]--> React App 
+
+---
+
+## Repo Name: _fullstack-node-react_
 
 Work for [Udemy Course: Node with React: Fullstack Web Development](https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/overview)
 
