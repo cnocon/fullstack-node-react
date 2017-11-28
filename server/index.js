@@ -1,12 +1,14 @@
 const express = require('express');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send({ hi: 'this is a redeploy!' });
-});
+// creates a new instance of Google Passport Strategy
+// passport.use is saying "passport, I want you to be aware there is a new strategy available; please make use of it so users can use strategy to authenticate in our application"
+// we'll pass in config for how to authenticate users in our application
+passport.use(new GoogleStrategy());
 
 
-// heroku port; use uppercase for const that shouldn't change
-// whenever heroku runs our app, it has the option to inject environment variables. BASICALLY IT'S HEROKU'S OPPORTUNTIY TO SEND US RUNTIME CONFIGURATION (process is available when app is running in heroku) (E.G. AFTER APP IS STARTING TO EXECUTE) if we run it in a development environment, process.env won't work, so you add the || 5000
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

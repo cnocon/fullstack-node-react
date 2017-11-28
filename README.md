@@ -1,4 +1,4 @@
-
+# IMPORTANT! Make sure you npm install stuff inside the `server` directory!
 
 # Feedback Email Campaign and Report Application
 
