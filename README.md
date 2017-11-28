@@ -52,6 +52,7 @@ The overall project built in this course is a mass email sender, then collection
 
 ## Relationship Between Node & Express
 1. new node project, then install express inside of it
+2. package.json is hub of our project; central
 
 
 # Definitions
