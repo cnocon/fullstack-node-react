@@ -5,6 +5,7 @@ const keys = require('./config/keys');
 
 const app = express();
 
+// allow passport to handle callback (with the special code) and grab the user's profile info and email; we need to edit the callback to actually do something with the successful response, not just console.log-ing the accessToken like we did before
 passport.use(
   new GoogleStrategy(
   {
@@ -12,6 +13,14 @@ passport.use(
     clientSecret: keys.googleClientSecret,
     callbackURL: '/auth/google/callback',
   },
+/**
+  * Handle Actual Profile & Email Data with callback route.
+  *
+  * At this point (the callback), we've redirected our user to Google,
+    user has granted us permission, we got sent back to localhost:5000/auth/google/callback, and the passport strategy saw the 'code' inside the url and automatically did a follow-up request over to google to exchange that code with the user's actual profile & email address.
+  * After that follow up request is made, the callback function (the
+    arrow function below), was executed. So now, instead of console log-ing the access token, we need to handle the actual information we received.
+  */
   accessToken => {
     console.log(accessToken);
   }
@@ -24,9 +33,7 @@ app.get(
   })
 );
 
-// now we need to add a route handler that takes the code from the response from Google when a user grants permission to our app. The user details don't get returned from google UNTIL AFTER WE MAKE A NEW REQUEST WITH THIS SPECIAL CODE.
-// the google passport strategy can handle all that for us
-/* all this really does is grab the user profile info; we aren't doing anything other than hanging on that step*/
+
 app.get('/auth/google/callback', passport.authenticate('google'));
 
 const PORT = process.env.PORT || 5000;
