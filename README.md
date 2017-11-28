@@ -1,6 +1,7 @@
 # Feedback Email Campaign and Report Application
 
 The overall project built in this course is a mass email sender, then collection of feedback from email and tabulating that data. 
+
 ---
 
 ## Flow of Application
@@ -40,7 +41,26 @@ The overall project built in this course is a mass email sender, then collection
 
 ---
 
-## fullstack-node-react
+#### MongoDB -> Express/Node API <--[HTTP Request (JSON)]--> React App
+
+*React app will never talk directly to MongoDB database. Instead, we put the _Express API_ between React and MongoDB*
+* Express API has a ton of business logic to take incoming requests from the React Application, pull info from MongoDB database, then to send that information back to React side of our app.
+* *_Important!_* The Express API must exist between the React app and MongoDB. React and the MongoDB cannot communicate directly. 
+
+
+---
+
+## Relationship Between Node & Express
+1. new node project, then install express inside of it
+
+
+# Definitions
+
+*Express.js (or simply Express)*: A web application framework for Node.js designed for building web applications and APIs. It is in fact the standard server framework for Node.js. _expressjs apps can be integrated with different databases_
+
+---
+
+## Repo Name: _fullstack-node-react_
 
 Work for [Udemy Course: Node with React: Fullstack Web Development](https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/overview)
 
