@@ -47,17 +47,30 @@ The overall project built in this course is a mass email sender, then collection
 * Express API has a ton of business logic to take incoming requests from the React Application, pull info from MongoDB database, then to send that information back to React side of our app.
 * *_Important!_* The Express API must exist between the React app and MongoDB. React and the MongoDB cannot communicate directly. 
 
-
 ---
 
-## Relationship Between Node & Express
-1. new node project, then install express inside of it
-2. package.json is hub of our project; central
+## Installation/Setup
+- new node project, then install express inside of it
+-- package.json is hub of our project; central
 
 
 # Definitions
+*Node*: Javascript runtime used to execute code _OUTSIDE_ of the browser (traditionally Javascript was executed inside the browser). _Used simply to execute code outside of the browser; in some arbitrary environment, like my laptop, his desktop, etc._
+* Runtime: In computer science, run time, runtime or execution time is the time during which a program is running, in contrast to other program lifecycle phases such as compile time, link time and load time.
 
-*Express.js (or simply Express)*: A web application framework for Node.js designed for building web applications and APIs. It is in fact the standard server framework for Node.js. _expressjs apps can be integrated with different databases_
+*Express*: Library that uses the NodeJS runtime. IT IS NOT A STANDALONE THING. Library that runs in the Node runtime. Has helpers to make dealing with HTTP traffic easier. _Its a collection of functions or helpers for working with HTTP aspects of nodejs a little easier. It's not its own runtime. It just makes writing servers a little easier. Everything inside this express library, we could, in theory, implement from scratch using just node and plain javascript. But it's a helpful library that does that HTTP stuff for us._
+* *Express.js (or simply Express)*: A web application framework for Node.js designed for building web applications and APIs. It is in fact the standard server framework for Node.js. _expressjs apps can be integrated with different databases_
+
+---
+![HTTP Request Diagram](https://www.dropbox.com/s/vf0lpjxevtrd9lz/Screenshot%202017-11-28%2002.05.02.png?dl=0)
+
+When you run a server on your local machine, it is going to be listening for HTTP traffic on an individual, single port. It's like a door through which traffic like HTTP requests can be routed. 
+Our browser can issue HTTP request to a specific port. We'll configure node and express to listen to traffic attempting to access a specific port. That inflow of information is listened for by node, then node hands it off to the express side of the application in a handoff. 
+Express then looks at request and decides what logic in our application will respond to the incoming request.
+* Route Handlers: used to handle HTTP requests asking for a specific service that we write for our specific application.
+* Route handlers then process the request and generate a response, which gets sent back to the running node process. Then node creates a new response and hands it off to the incoming HTTP request?
+_Summary: Underlying Node runtime listens for traffic on specific port. When some traffic comes in, it's then routed to the express side of our application. You and I route some logic that handles incoming requests and formulates and sends out a response that gets routed back to whoever made the original request._
+
 
 ---
 
