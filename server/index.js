@@ -1,24 +1,12 @@
-/* create new express application and logic for our first route handler
-*/
-
-// can't use import syntax bc we only have "common js modules"
 const express = require('express');
-
-// init a Express app
 const app = express();
 
-// app object sets up configuration that listens for incoming requests, then routes them to different route handlers
-
-// our first route handler
 app.get('/', (req, res) => {
   res.send({ hi: 'there' });
 });
 
-app.get('/dogs', (req, res) => {
-  res.send({ dogs: ['lab','retriever'] });
-});
 
-// also have app.post, app.put, etc; all the crud stuff, but so far we just have get
-
-// express listens to port; then tells node what port to listen to for HTTP traffic
-app.listen(5000);
+// heroku port; use uppercase for const that shouldn't change
+// whenever heroku runs our app, it has the option to inject environment variables. BASICALLY IT'S HEROKU'S OPPORTUNTIY TO SEND US RUNTIME CONFIGURATION (process is available when app is running in heroku) (E.G. AFTER APP IS STARTING TO EXECUTE) if we run it in a development environment, process.env won't work, so you add the || 5000
+const PORT = process.env.PORT || 5000;
+app.listen(PORT);

@@ -8,6 +8,34 @@ The overall project built in this course is a mass email sender, then collection
 * You have to restart node server when adding new routers (e.g. app.get)
 
 2. Load `localhost:5000` in your browser.
+
+---
+
+# Deployment
+A lot of services, not just Heroku, use this same process for deployment, so it's nifty to know.
+
+## Deployment Checklist
+
+![Deployment Checklist Diagram](https://www.dropbox.com/s/k4r35i2geyh1ghn/Screenshot%202017-11-28%2002.35.28.png?dl=0)
+
+*1. Dynamic Port Binding*
+* Heroku tells us which port our app will use, so we need to make sure we listen to the port they tell us to.
+
+*2. Specify Node Environment*
+* We want to use a specific version of node, so we need to tell Heroku which version that is that we want.
+
+*3. Specify start script*
+* Instruct Heroku which command to run to start our server running.
+
+*4. Create .gitignore file*
+* We don't want to include dependencies since Heroku will do that for us.
+
+## How to deploy our application
+
+
+## How to redeploy our application
+
+
 ---
 
 ## Flow of Application
