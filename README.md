@@ -1,7 +1,13 @@
+
+
 # Feedback Email Campaign and Report Application
 
 The overall project built in this course is a mass email sender, then collection of feedback from email and tabulating that data. 
 
+1. Start node server `node index.js` from server directory.
+* You have to restart node server when adding new routers (e.g. app.get)
+
+2. Load `localhost:5000` in your browser.
 ---
 
 ## Flow of Application
