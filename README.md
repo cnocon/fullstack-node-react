@@ -15,7 +15,7 @@ The overall project built in this course is a mass email sender, then collection
 
 ## Deployment Checklist
 
-![Deployment Checklist Diagram](https://www.dropbox.com/s/k4r35i2geyh1ghn/Screenshot%202017-11-28%2002.35.28.png?dl=0)
+![Deployment Checklist Diagram](https://www.dropbox.com/s/k4r35i2geyh1ghn/Screenshot%202017-11-28%2002.35.28.png?raw=1)
 
 *1. Dynamic Port Binding*
 * Heroku tells us which port our app will use, so we need to make sure we listen to the port they tell us to.
@@ -111,7 +111,8 @@ You just commit changes and push to heroku master. Very logical.
 * *Express.js (or simply Express)*: A web application framework for Node.js designed for building web applications and APIs. It is in fact the standard server framework for Node.js. _expressjs apps can be integrated with different databases_
 
 ---
-![HTTP Request Diagram](https://www.dropbox.com/s/vf0lpjxevtrd9lz/Screenshot%202017-11-28%2002.05.02.png?dl=0)
+
+![HTTP Request Diagram](https://www.dropbox.com/s/vf0lpjxevtrd9lz/Screenshot%202017-11-28%2002.05.02.png?raw=1)
 
 When you run a server on your local machine, it is going to be listening for HTTP traffic on an individual, single port. It's like a door through which traffic like HTTP requests can be routed. 
 Our browser can issue HTTP request to a specific port. We'll configure node and express to listen to traffic attempting to access a specific port. That inflow of information is listened for by node, then node hands it off to the express side of the application in a handoff. 
