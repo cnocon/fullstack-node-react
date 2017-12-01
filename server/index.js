@@ -10,9 +10,8 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
-// tell app to use cookies
+// tell app to use cookie
 app.use(
-  // 2 args: maxAge: how long before expiring in milliseconds (we use 30 days), keys for encrypting cookie
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieEncryptionKey]
