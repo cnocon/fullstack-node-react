@@ -14,9 +14,17 @@ passport.use(
       callbackURL: '/auth/google/callback',
     },
     (accessToken, refreshToken, profile, done) => {
-      // profile is obj with `id` we will use
-      // this creates a record but doesn't persist it to the db; to actually save it, we have to call `.save`
-      new User({ googleId: profile.id }).save();
+      // first check if user exists already by querying Mongoose
+      User.findOne({ googleId: profile.id }) // this returns a promise, not an object
+        .then((existingUser) => { // handle promise
+          if (existingUser) {
+            // we already have a record w/given google profile id
+            console.log('already have this guy');
+          } else {
+            // if not, create new record
+            new User({ googleId: profile.id }).save();
+          }
+        })
     }
   )
 );

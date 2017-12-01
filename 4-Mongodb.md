@@ -33,3 +33,20 @@ The best place will be in that callback that gets called when authentication via
 `const User = mongoose.model('users');`
 ---
 
+ANYTIME YOU QUERY YOUR DB, REMEMBER YOU'RE INITIATING AN ASYNCHRONOUS ACTION. 
+E.G. User.findOne({ googleId: profile.id })
+YOU CAN'T put
+const User = User.findOne({ googleId: profile.id }) because an obj isn't returned, but RATHER A PROMISE!!!
+
+```js
+// first check if user exists already by querying Mongoose
+User.findOne({ googleId: profile.id }) // this returns a promise, not an object
+  .then((existingUser) => { // handle promise
+    if (existingUser) {
+      // we already have a record w/given google profile id
+    } else {
+      // if not, create new record
+      new User({ googleId: profile.id }).save();
+    }
+  })
+```
