@@ -22,7 +22,9 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
+      // this relative path can cause http v https confusion w/google redirect protocol error; adding proxy true after this will fix it (says passport needs to trust heroku and not change to http)
       callbackURL: '/auth/google/callback',
+      proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id })
