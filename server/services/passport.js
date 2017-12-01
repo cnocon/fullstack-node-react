@@ -14,15 +14,15 @@ passport.use(
       callbackURL: '/auth/google/callback',
     },
     (accessToken, refreshToken, profile, done) => {
-      // first check if user exists already by querying Mongoose
-      User.findOne({ googleId: profile.id }) // this returns a promise, not an object
-        .then((existingUser) => { // handle promise
+      User.findOne({ googleId: profile.id })
+        .then((existingUser) => {
           if (existingUser) {
-            // we already have a record w/given google profile id
-            console.log('already have this guy');
+            // done expects and error thing as 1st, then an object for response
+            done(null, existingUser);
           } else {
-            // if not, create new record
-            new User({ googleId: profile.id }).save();
+            new User({ googleId: profile.id })
+              .save()
+              .then(newUser => done(null, newUser));
           }
         })
     }
