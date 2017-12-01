@@ -4,7 +4,14 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
-const User = mongoose.model('users'); // DON'T USE REQUIRE STATEMENTS W/MONGOOSE
+const User = mongoose.model('users');
+
+// serializeUser is for cookies in Passport; we send it our user object, and done callback
+passport.serializeUser((user, done) => {
+  // we tell passport what to use as the identifying info
+  // user.id references the Mongo auto-generated unique id.
+  done(null, user.id);
+});
 
 passport.use(
   new GoogleStrategy(
@@ -17,7 +24,6 @@ passport.use(
       User.findOne({ googleId: profile.id })
         .then((existingUser) => {
           if (existingUser) {
-            // done expects and error thing as 1st, then an object for response
             done(null, existingUser);
           } else {
             new User({ googleId: profile.id })
