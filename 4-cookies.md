@@ -20,3 +20,11 @@ passport.deserializeUser((userId, done) => {
 Out of the box, express has no idea  how to handle cookies, so we need to install a helper library called Cookie Session. 
 `npm install --save cookie-session`
 
+### Where are we now?
+Lecture: https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/t/lecture/7603048?start=0
+
+![](https://www.dropbox.com/s/kcoyi28jt4tusfo/Screenshot%202017-12-01%2014.03.32.png?raw=1)
+"req" is short for request object.
+
+
+

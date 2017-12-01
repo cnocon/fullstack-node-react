@@ -13,6 +13,11 @@ module.exports = app => {
   );
 
   app.get('/auth/google/callback', passport.authenticate('google'));
+
+  app.get('/api/current_user', (req, res) => {
+    // test to make sure user is accessible/there
+    res.send(req.user);
+  })
 };
 
 
