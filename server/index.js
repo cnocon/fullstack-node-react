@@ -1,9 +1,11 @@
 const express = require('express');
-
-// passport file just has to run, not return anything, so we don't need to assign it to an object here, we can just require the file.
+const mongoose = require('mongoose');
+cosnt keys = require('./config/keys');
 require('./services/passport');
 
-// this has to be accessible in the authRoutes file, so...
+// instruct mongoose to attempt to connect to the copy of mongodb we provisioned remotely
+mongoose.connect(keys.mongoURI);
+
 const app = express();
 
 /**
