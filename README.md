@@ -1,3 +1,16 @@
+
+
+```js
+/**
+  * Cool refactor!
+  *
+  * 1. When we require the authRoutes file, it returns a FUNCTION because that's what we exported from that file!
+  * 2. So what we did was immediately call the function returned from the require with the proper argument, `app`, for that function. Awesome.
+  */
+require('./routes/authRoutes')(app);
+
+```
+
 # IMPORTANT! Make sure you npm install stuff inside the `server` directory!
 
 # Feedback Email Campaign and Report Application
@@ -137,5 +150,3 @@ Instructor's [companion repo for the course](https://github.com/StephenGrider/Fu
 
 ### Course Resources: FullStackReact
 <sup>(from [Google Doc by Instructor](https://docs.google.com/document/d/1yZ5sM5xTIxcv0LqMyj__vOWIXRri4TH_3lMu1qPBQjA/edit?ts=5a1cf79e#heading=h.kk1966kbedef))</sup>
-
-
