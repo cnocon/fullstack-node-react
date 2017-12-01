@@ -14,8 +14,16 @@ module.exports = app => {
 
   app.get('/auth/google/callback', passport.authenticate('google'));
 
+  app.get('/api/logout', (req, res) => {
+    // use built in logout function by Passport to kill user identification stuff from session;
+    req.logout();
+    // return the user that was just signed out (it should be EMPTY because this user is destroyed, so that's good)
+    res.send(req.user);
+  });
+
+  // test to make sure user is accessible/there in session
   app.get('/api/current_user', (req, res) => {
-    // test to make sure user is accessible/there
+
     res.send(req.user);
   })
 };
