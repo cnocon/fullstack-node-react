@@ -22,3 +22,14 @@ mongoose.model('users', userSchema);
 ```
 2. *REMEMBER THAT JUST CREATING A JS FILE isn't enough to get it executed; you have to require it somehwere to make sure it gets run -- *
 In index.js, add `require ('./models/User');`
+
+---
+## Next step: Create a new user in the application
+The best place will be in that callback that gets called when authentication via google response is successful; (see services/passport.js) - that response contains the data we need (the unique google id/profiel id) to create our new record.
+
+**When you need to use Mongoose classes in your application, you do NOT use require and export statements (like you'd usually do) bc multiple times can confuse Mongoose in testing environments:
+### To get a model from mongoose in a file:
+`const mongoose = require('mongoose');`
+`const User = mongoose.model('users');`
+---
+

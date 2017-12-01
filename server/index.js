@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+require ('./models/User'); // put this before services/passport bc passport.js uses it
 require('./services/passport');
-require ('./models/User');
+
 // instruct mongoose to attempt to connect to the copy of mongodb we provisioned remotely
 mongoose.connect(keys.mongoURI);
 
