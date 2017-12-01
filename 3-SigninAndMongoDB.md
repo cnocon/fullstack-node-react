@@ -38,8 +38,7 @@ Model Instance: Represents a MongoDB record (or document)
 Our setup:
 ![Our setup will look like this](https://www.dropbox.com/s/of38iggc58uz1sv/Screenshot%202017-12-01%2011.32.32.png?raw=1)
 
-1. Create a remotely hosted copy of Mongo via [mLab](http://mlab.com)
-2. 
+
 
 
 

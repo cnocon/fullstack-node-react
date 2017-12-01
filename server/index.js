@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-cosnt keys = require('./config/keys');
+const keys = require('./config/keys');
 require('./services/passport');
-
+require ('./models/User');
 // instruct mongoose to attempt to connect to the copy of mongodb we provisioned remotely
 mongoose.connect(keys.mongoURI);
 
