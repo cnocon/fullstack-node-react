@@ -5,3 +5,5 @@ We should also separate dev and prod keys.
 
 We should also have two separate DB's. One that is production, that we don't mess around with or manually deltee add stuff, etc. We can do that stuff in our separate, dev db.
 
+Moving to the client side:
+`sudo npm install -g create-react-app`
