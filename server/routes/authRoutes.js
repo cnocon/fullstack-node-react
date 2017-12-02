@@ -23,7 +23,6 @@ module.exports = app => {
 
   // test to make sure user is accessible/there in session
   app.get('/api/current_user', (req, res) => {
-
     res.send(req.user);
   })
 };
