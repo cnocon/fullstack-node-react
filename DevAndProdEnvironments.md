@@ -19,4 +19,9 @@ $ `npm start`
 * The other, Express, is handling our database related stuff, providing us JSON. 
 
 The reason we're doing this is because using `create-react-app` is just an easier way to get started with react. We COULD have tried to expand our already existing Express server with webpack and babel and all the other dependenceis, etc., but this is just easier ofr this course's purposes.
+
+
+how can you get our server & client server running at same time? (Let's call them front end and backend servers)
+- we'll use a package called "concurrently" which allows us to run 2 servers w/asingle command
+
 __
