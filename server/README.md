@@ -17,3 +17,36 @@ We no longer even use the client server in prod. So create-react-app just is rel
 ![all relative links get automatically rewritten as our root herokuapp domain](https://www.dropbox.com/s/i5t2je12pnvrx2p/Screenshot%202017-12-01%2021.10.12.png?dl=0)
 
 # I skipped the optional: [Optional: Why this architecture?](https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/t/lecture/7605040?start=0)
+
+--------------
+
+# Async Await Syntax
+Lecture https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/t/lecture/7605048?start=15
+ (Idk why the fuck he's talking about this right now)
+
+write a function to retrieve a blob of json; make an ajax request: use the 'fetch' function; fetch is standard as of  es2015
+//https://rallycoding.herokuapp.com/api/music_albums
+
+```js
+// before refactor
+/*function fetchAlbums() {
+  fetch('https://rallycoding.herokuapp.com/api/music_albums')
+    .then(res => res.json())
+    .then(json => console.log(json));
+}
+fetchAlbums();*/
+```
+
+```js
+// after refactor
+async function fetchAlbums() {
+  const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums')
+  const json = await res.json()
+  console.log(json);
+}
+
+fetchAlbums();
+```
+
+To see they both work, just run each block of code in your browser console.
+
