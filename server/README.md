@@ -20,33 +20,18 @@ We no longer even use the client server in prod. So create-react-app just is rel
 
 --------------
 
-# Async Await Syntax
-Lecture https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/t/lecture/7605048?start=15
- (Idk why the fuck he's talking about this right now)
+# Front End/Client React Setup
+Blue stuff=client side
+green stuff=server side
+![](https://www.dropbox.com/s/6cdc19zltu8wqaq/Screenshot%202017-12-04%2013.45.37.png?raw=1)
 
-write a function to retrieve a blob of json; make an ajax request: use the 'fetch' function; fetch is standard as of  es2015
-//https://rallycoding.herokuapp.com/api/music_albums
+I need to review what Redux and ReactRouter are... he assumes knowledge of these.
 
-```js
-// before refactor
-/*function fetchAlbums() {
-  fetch('https://rallycoding.herokuapp.com/api/music_albums')
-    .then(res => res.json())
-    .then(json => console.log(json));
-}
-fetchAlbums();*/
-```
+![](https://www.dropbox.com/s/yul7dy946ojd0g0/Screenshot%202017-12-04%2013.55.08.png?raw=1)
+Indexjs puts together the data side/Redux side of things.
+App.js contains single App comonent; the Rendering/React layer of our application. It's about what set of components to show, so it's the primary location for all our React Router logic.
+![](https://www.dropbox.com/s/digc8qj1vwsm8n3/Screenshot%202017-12-04%2013.55.49.png?raw=1)
 
-```js
-// after refactor
-async function fetchAlbums() {
-  const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums')
-  const json = await res.json()
-  console.log(json);
-}
+**Remember we have 2 package.json files - one for client and one for server; so make sure you're in right directly when installing for client or server. 
 
-fetchAlbums();
-```
-
-To see they both work, just run each block of code in your browser console.
 
